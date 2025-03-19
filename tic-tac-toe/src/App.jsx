@@ -8,10 +8,10 @@ export default function Board() {
   let winner;
   let gameOver = true;
 
-  if (squares.every(square => square !== null)) {
-    status = 'Ничья';
-  } else if ((winner = determineWinner(squares)) !== null) {
+  if ((winner = determineWinner(squares)) !== null) {
     status = `Победитель: ${winner}`;
+  } else if (squares.every(square => square !== null)) {
+    status = 'Ничья';
   } else {
     gameOver = false;
     status = `Следующий игрок: ${xIsNext ? "X" : "0"}`;
